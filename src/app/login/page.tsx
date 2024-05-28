@@ -15,9 +15,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post("api/users/login", data);
-      if (res.data.mymsg == "user not found") {
-        console.log(res.data.mymsg);
-      } else {
+
+      if (res.data.isVerified == false) {
+        console.log("cant login");
+      } else if (res.data.isVerified == true) {
         console.log(res);
 
         router.push("/profile");

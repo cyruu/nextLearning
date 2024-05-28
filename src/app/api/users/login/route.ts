@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
     });
     const response = NextResponse.json({
       mymsg: "login successful",
+      isVerified: userExits.isVerified,
       success: true,
       token: token,
     });
